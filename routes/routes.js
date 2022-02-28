@@ -13,12 +13,15 @@ router.post('/sendMessage', (req, res) => {
         .create({
             body: 'This is a message that I want to send over WhatsApp with Twilio!',
             from: '+19107131896',
-            // statusCallback: 'https://abc1234.free.beeceptor.com',
+            statusCallback: 'https://twilio-dev-app.herokuapp.com/routes/twilioCallBack',
             to: '+254715134415'
         })
         .then(message => res.send(message));
 
-        // res.send(message)
+})
+
+router.post('/twilioCallBack', (req, res) => {
+    console.log('Twilio callback')
 
 })
 
